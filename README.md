@@ -148,6 +148,136 @@ export const environment = {
 
 ---
 
+
+## 🧩 Folder Structure Overview
+
+Directory structure:
+└── hugs-4-bugs-articlehub-frontend/
+    ├── README.md
+    ├── angular.json
+    ├── package.json
+    ├── tsconfig.app.json
+    ├── tsconfig.json
+    ├── tsconfig.spec.json
+    ├── .editorconfig
+    └── src/
+        ├── index.html
+        ├── main.ts
+        ├── styles.scss
+        ├── app/
+        │   ├── app-routing.module.ts
+        │   ├── app.component.html
+        │   ├── app.component.scss
+        │   ├── app.component.spec.ts
+        │   ├── app.component.ts
+        │   ├── app.module.ts
+        │   ├── admin/
+        │   │   ├── admin-routing.module.ts
+        │   │   ├── admin.module.ts
+        │   │   ├── dashboard/
+        │   │   │   ├── dashboard.component.html
+        │   │   │   ├── dashboard.component.scss
+        │   │   │   ├── dashboard.component.spec.ts
+        │   │   │   └── dashboard.component.ts
+        │   │   ├── dialog/
+        │   │   │   ├── article/
+        │   │   │   │   ├── article.component.html
+        │   │   │   │   ├── article.component.scss
+        │   │   │   │   ├── article.component.spec.ts
+        │   │   │   │   └── article.component.ts
+        │   │   │   ├── category/
+        │   │   │   │   ├── category.component.html
+        │   │   │   │   ├── category.component.scss
+        │   │   │   │   ├── category.component.spec.ts
+        │   │   │   │   └── category.component.ts
+        │   │   │   ├── confirmation/
+        │   │   │   │   ├── confirmation.component.html
+        │   │   │   │   ├── confirmation.component.scss
+        │   │   │   │   ├── confirmation.component.spec.ts
+        │   │   │   │   └── confirmation.component.ts
+        │   │   │   ├── users/
+        │   │   │   │   ├── users.component.html
+        │   │   │   │   ├── users.component.scss
+        │   │   │   │   ├── users.component.spec.ts
+        │   │   │   │   └── users.component.ts
+        │   │   │   └── view-article/
+        │   │   │       ├── view-article.component.html
+        │   │   │       ├── view-article.component.scss
+        │   │   │       ├── view-article.component.spec.ts
+        │   │   │       └── view-article.component.ts
+        │   │   ├── help-details/
+        │   │   │   ├── help-details.component.html
+        │   │   │   ├── help-details.component.scss
+        │   │   │   ├── help-details.component.spec.ts
+        │   │   │   └── help-details.component.ts
+        │   │   ├── layout/
+        │   │   │   ├── layout.component.html
+        │   │   │   ├── layout.component.scss
+        │   │   │   ├── layout.component.spec.ts
+        │   │   │   └── layout.component.ts
+        │   │   ├── manage-article/
+        │   │   │   ├── manage-article.component.html
+        │   │   │   ├── manage-article.component.scss
+        │   │   │   ├── manage-article.component.spec.ts
+        │   │   │   └── manage-article.component.ts
+        │   │   ├── manage-category/
+        │   │   │   ├── manage-category.component.html
+        │   │   │   ├── manage-category.component.scss
+        │   │   │   ├── manage-category.component.spec.ts
+        │   │   │   └── manage-category.component.ts
+        │   │   └── manage-users/
+        │   │       ├── manage-users.component.html
+        │   │       ├── manage-users.component.scss
+        │   │       ├── manage-users.component.spec.ts
+        │   │       └── manage-users.component.ts
+        │   ├── article-details/
+        │   │   ├── article-details.component.html
+        │   │   ├── article-details.component.scss
+        │   │   ├── article-details.component.spec.ts
+        │   │   └── article-details.component.ts
+        │   ├── home/
+        │   │   ├── home.component.html
+        │   │   ├── home.component.scss
+        │   │   ├── home.component.spec.ts
+        │   │   └── home.component.ts
+        │   ├── login/
+        │   │   ├── login.component.html
+        │   │   ├── login.component.scss
+        │   │   ├── login.component.spec.ts
+        │   │   └── login.component.ts
+        │   ├── pipe/
+        │   │   ├── sanitize-html.pipe.spec.ts
+        │   │   └── sanitize-html.pipe.ts
+        │   ├── services/
+        │   │   ├── app-user.service.spec.ts
+        │   │   ├── app-user.service.ts
+        │   │   ├── article.service.spec.ts
+        │   │   ├── article.service.ts
+        │   │   ├── auth.interceptor.spec.ts
+        │   │   ├── auth.interceptor.ts
+        │   │   ├── category.service.spec.ts
+        │   │   ├── category.service.ts
+        │   │   ├── router-guard.service.spec.ts
+        │   │   ├── router-guard.service.ts
+        │   │   ├── snackbar.service.spec.ts
+        │   │   ├── snackbar.service.ts
+        │   │   ├── theme.service.spec.ts
+        │   │   ├── theme.service.ts
+        │   │   ├── token.interceptor.spec.ts
+        │   │   └── token.interceptor.ts
+        │   └── shared/
+        │       ├── global-constants.ts
+        │       ├── material-module.ts
+        │       └── shared.module.ts
+        ├── assets/
+        │   └── .gitkeep
+        └── environments/
+            ├── environment.development.ts
+            └── environment.ts
+
+
+---
+
 ## 💡 Helpful Commands (with `npx` for old Angular CLI usage)
 
 | Task                        | Command                           |
@@ -167,7 +297,28 @@ export const environment = {
 * `DialogData` is injected via `MAT_DIALOG_DATA` for individual article views.
 * Use `HttpClient` (if integrated) to connect to backend later.
 
+```
+Login → JWT Token stored → TokenInterceptor adds token to all secured routes automatically.
+
+Protected routes like /addArticle require valid token.
+```
+
+
 ---
+
+
+## 🧾 Notes
+
+This frontend is tightly coupled with the backend. Ensure backend is up before testing protected routes.
+
+Always check BASE_URL in environment.ts before running.
+
+All data fetching & mutation happen via REST APIs.
+
+This project was designed to support low-resource environments, hence legacy Angular.
+
+---
+
 
 ## 👨‍💻 Developed By
 
