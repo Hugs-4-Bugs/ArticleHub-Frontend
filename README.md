@@ -151,8 +151,8 @@ export const environment = {
 
 
 ## 🧩 Folder Structure Overview
-
-Directory structure:
+```
+ArticleHub Frontend
 └── hugs-4-bugs-articlehub-frontend/
     ├── README.md
     ├── angular.json
@@ -276,7 +276,7 @@ Directory structure:
             ├── environment.development.ts
             └── environment.ts
 
-
+```
 ---
 
 ## 💡 Helpful Commands (with `npx` for old Angular CLI usage)
