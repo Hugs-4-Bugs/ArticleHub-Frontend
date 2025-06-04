@@ -5,7 +5,8 @@
 A sleek, theme-switchable article management system built using Angular v16, Angular Material, and Flex Layout. This is the frontend of the complete ArticleHub project.
 
 💡 This works with the backend repo:
-👉 ArticleHub-Backend: https://github.com/Hugs-4-Bugs/ArticleHub-Application
+
+**👉 ArticleHub-Backend:** https://github.com/Hugs-4-Bugs/ArticleHub-Application
 
 ---
 
