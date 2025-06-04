@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+      "vercel-build": "ng build --configuration production"
   },
   "private": true,
   "dependencies": {
