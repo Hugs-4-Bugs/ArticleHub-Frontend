@@ -15,6 +15,7 @@ import { GlobalConstants } from '../shared/global-constants';
 export class LoginComponent {
   loginForm:any = FormGroup;
   responseMessage: any;
+  passwordFieldType: string = 'password';  // this will enable the hide or show password
 
   constructor(private formBuilder:FormBuilder, 
     private router:Router,
@@ -29,6 +30,11 @@ export class LoginComponent {
       email:[null,[Validators.required, Validators.pattern(GlobalConstants.emailRegax)]],
       password:[null,[Validators.required]]
     })
+  }
+
+
+  togglePasswordVisibility() {   // this will enable the hide or show password
+    this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
   }
 
   handleSubmit(){

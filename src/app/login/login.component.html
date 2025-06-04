@@ -1,44 +1,75 @@
 <body>
     <div class="login-container">
-        <div class = "logo">
-            <mat-icon>lock</mat-icon>
-            <!-- <mat-icon fontSet="material-icons" fontIcon="lock"></mat-icon> -->
+      <div class="logo">
+        <mat-icon>lock</mat-icon>
+        <!-- <mat-icon fontSet="material-icons" fontIcon="lock"></mat-icon> -->
+      </div>
+  
+      <div style="text-align: center !important; margin-bottom: 5pc;">Article Hub</div>
+  
+      <form [formGroup]="loginForm">
+        <div fxFlex fxLayout="column">
+          <mat-form-field appearance="outline" fxFlex [color]="themeService.getTheme()">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" required>
+            <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+              <span *ngIf="loginForm.controls.email.errors.required">This field is required.</span>
+              <span *ngIf="loginForm.controls.email.errors.pattern">This field is invalid.</span>
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" fxFlex [color]="themeService.getTheme()">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="passwordFieldType" formControlName="password" required>
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="togglePasswordVisibility()"
+              [attr.aria-label]="'Toggle password visibility'"
+              [attr.aria-pressed]="passwordFieldType === 'text'">
+              <mat-icon>{{ passwordFieldType === 'password' ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+              <span *ngIf="loginForm.controls.password.errors.required">This field is required.</span>
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- in case the email and password format doesn't meet as expected then login button will be disabled -->
+          <button mat-raised-button [disabled]="!(loginForm.valid && loginForm.dirty)" [color]="themeService.getTheme()" (click)="handleSubmit()">Login</button>
         </div>
-   
-
-    <div style="text-align: center !important; margin-bottom: 5pc;">Article Hub</div>
-
-    <form [formGroup]="loginForm">
-        <div fxFlex fxLayout = "column">
-            <mat-form-field appearance = "outline" fxFlex [color]="themeService.getTheme()">
-                <mat-label>Email</mat-label>
-                <input matInput formControlName="email" required>
-                <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
-                    <span *ngIf="loginForm.controls.email.errors.required">This field is required.</span>
-                    <span *ngIf="loginForm.controls.email.errors.pattern">This field is invalid.</span>
-                </mat-error>
-            </mat-form-field>
-
-
-            <mat-form-field appearance = "outline" fxFlex [color]="themeService.getTheme()">
-                <mat-label>Password</mat-label>
-                <input matInput formControlName="password" required>
-                <mat-error *ngIf="loginForm.controls.password.touched && loginForm.controls.email.invalid">
-                    <span *ngIf="loginForm.controls.password.errors.required">This field is required.</span>
-                </mat-error>
-            </mat-form-field>
-
-
-            <!-- in case the email and password format doesn't meet as expected then login button will be disabled -->
-            <button mat-raised-button [disabled]="!(loginForm.valid && loginForm.dirty)" [color]="themeService.getTheme()" (click)="handleSubmit()">Login</button>
-        </div> 
-    </form>
-
-    <!-- back button code -->
-    <div class="home-link">
+      </form>
+  
+      <!-- back button code -->
+      <div class="home-link">
         <span (click)="onBack()">
-            <span style="color: blue; cursor: pointer;">Back</span>
+          <span style="color: rgb(198, 132, 27); cursor: pointer;">Back</span>
         </span>
+      </div>
     </div>
-</div>
-</body> 
+    
+
+    <!-- Floating article icons -->
+<div class="article-element article-pen" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+<div class="article-element article-doc" style="top: 15%; right: 10%; animation-delay: 3s;"></div>
+<div class="article-element article-chart" style="bottom: 20%; left: 15%; animation-delay: 2s;"></div>
+<div class="article-element article-share" style="bottom: 25%; right: 12%; animation-delay: 4s;"></div>
+<div class="article-element article-tag" style="top: 30%; left: 50%; animation-delay: 1s;"></div>
+<div class="article-element article-pen" style="top: 70%; left: 10%; animation-delay: 5s;"></div>
+<div class="article-element article-doc" style="top: 65%; right: 15%; animation-delay: 2s;"></div>
+<div class="article-element article-chart" style="top: 40%; left: 20%; animation-delay: 3s;"></div>
+<div class="article-element article-search" style="top: 25%; left: 15%; animation-delay: 2s;"></div>
+<div class="article-element article-bookmark" style="bottom: 30%; right: 25%; animation-delay: 4s;"></div>
+<div class="article-element article-edit" style="top: 45%; left: 80%; animation-delay: 1s;"></div>
+<div class="article-element article-search" style="top: 65%; left: 25%; animation-delay: 3s;"></div>
+<div class="article-element article-bookmark" style="top: 35%; right: 15%; animation-delay: 5s;"></div>
+<div class="article-element article-cloud" style="top: 10%; left: 0;"></div>
+<div class="article-element article-cloud" style="top: 40%; left: 0; animation-delay: 10s;"></div>
+<div class="article-element article-database" style="top: 20%; left: 10%;"></div>
+<div class="article-element article-database" style="bottom: 15%; right: 10%; animation-delay: 15s;"></div>
+<div class="article-text" style="top: 18%; left: 25%; animation-duration: 40s;">Article</div>
+<div class="article-text" style="top: 75%; right: 20%; animation-duration: 45s;">Manage</div>
+<div class="article-text" style="top: 50%; left: 10%; animation-duration: 50s;">Share</div>
+<div class="article-text" style="top: 30%; right: 30%; animation-duration: 55s;">Publish</div>
+<div class="article-text" style="top: 60%; right: 10%; animation-duration: 60s;">Content</div>
+  </body>
+  

@@ -1,3 +1,140 @@
-mat-card{
-    padding: 20px;
+mat-card {
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+}
+
+/* Glowing animated border */
+mat-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  background: linear-gradient(45deg, #1e6d44, #6f467c, #8f9d59, #5c8689);
+  background-size: 400% 400%;
+  animation: borderGlow 10s ease infinite;
+  border-radius: 18px;
+}
+
+@keyframes borderGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+mat-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.9);
+}
+
+/* Add icon using :before pseudo-element */
+mat-card span::before {
+  content: "👋";
+  margin-right: 8px;
+  font-size: 24px;
+  animation: wave 1.5s infinite;
+  display: inline-block;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-8deg);
+  }
+  75% {
+    transform: rotate(12deg);
+  }
+}
+
+/* Headline */
+mat-card h2 {
+  text-align: center;
+  color: #2e3a59;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Description paragraphs */
+mat-card p {
+  font-size: 14px;
+  color: #3c3e95;
+  text-align: center;
+  margin: 5px 0 15px;
+}
+
+/* Action buttons group */
+mat-card div:nth-of-type(1) {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+/* Thought of the day block */
+mat-card div:nth-of-type(2) {
+  margin-top: 30px;
+  background: #8090bb;
+  padding: 20px;
+  border-left: 5px solid #3c3e95;
+  border-radius: 8px;
+}
+
+mat-card div:nth-of-type(2) h4 {
+  margin: 0;
+  color: #2f2f7d;
+}
+
+mat-card div:nth-of-type(2) p {
+  font-style: italic;
+  color: #333;
+  margin-top: 5px;
+}
+
+/* Stats card group */
+mat-card div:nth-of-type(3) {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+}
+
+mat-card div:nth-of-type(3) > div {
+  min-width: 150px;
+  margin: 10px;
+  padding: 20px;
+  background-color: #9babd3;
+  border-radius: 12px;
+}
+
+mat-card div:nth-of-type(3) h3 {
+  margin: 0;
+  color: #3c3e95;
+  font-size: 22px;
+}
+
+mat-card div:nth-of-type(3) p {
+  margin: 0;
+  color: #444;
+  font-size: 14px;
 }

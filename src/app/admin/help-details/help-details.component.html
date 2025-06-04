@@ -1,11 +1,61 @@
-<mat-card>
+<!-- Sticky Help Center -->
+<mat-card class="sticky-card">
     <b>Help Center</b>
-</mat-card>
-<hr>
-<mat-card>
-    <b>Have a question? Reach out at: 
-        <a class="email" href="mailto:Mailtoprabhat72@gmail.com">Mailtoprabhat72@gmail.com</a>
-    </b>
-</mat-card>
+    <p class="help-subtitle">Your go-to place for guidance and assistance.</p>
+  </mat-card>
+  
+  <hr />
+  
+  <!-- Sticky Contact Support -->
+  <mat-card class="sticky-card">
+    <div class="support-container">
+      <div class="support-info">
+        <b>Have a question? Reach out at: 
+          <a class="email" href="mailto:Mailtoprabhat72@gmail.com"><strong> Mailtoprabhat72@gmail.com</strong></a>
+        </b>
+        <p class="response-time">⏱️ Typically replies within 24-48 hours</p>
+      </div>
+      <div class="support-actions">
+        <button mat-stroked-button color="primary" (click)="handleAddAction('faq')">📄 View FAQs</button>
+        <button mat-flat-button color="accent" (click)="handleAddAction('support')">📝 Contact Support</button>
+      </div>
+    </div>
+  </mat-card>
 
+  
+  <!-- FAQ Section -->
+<mat-card class="scrollable-faq">
+    <b>Frequently Asked Questions</b>
+    <div class="faq-item">
+      <h4>📌 How do I reset my password?</h4>
+      <p>Go to the login page and click on "Forgot Password". You’ll receive an email with reset instructions.</p>
+    </div>
+  
+    <div class="faq-item">
+      <h4>📌 Where can I manage my account settings?</h4>
+      <p>Click on your profile icon at the top-right, then select "Settings" to manage preferences, email, and security.</p>
+    </div>
+  
+    <div class="faq-item">
+      <h4>📌 How do I publish a new article?</h4>
+      <p>Navigate to the "Dashboard" and click on "Create Article". Fill out the form and hit submit.</p>
+    </div>
+  
+    <div class="faq-item">
+      <h4>📌 Can I collaborate with others on articles?</h4>
+      <p>Currently, collaboration is in beta. You can request access by contacting support.</p>
+    </div>
+  </mat-card>
+  
+  <!-- Contact Support Section -->
+  <mat-card>
+    <b>Contact Support</b>
+    <p>If your query isn't listed above, reach out to us directly:</p>
+    <ul class="contact-methods">
+      <li>📧 <b>Email:</b> <a class="email" href="mailto:Mailtoprabhat72@gmail.com"><strong> Mailtoprabhat72@gmail.com</strong></a></li>
+      <li>📞 <b>Phone:</b> +91-7250063206 (Mon–Fri, 10am to 6pm)</li>
+      <li>💬 <b>Live Chat:</b> Available via the chat icon on bottom-right corner</li>
+    </ul>
+    <p class="disclaimer">Note: We aim to respond within 24-48 hours on working days.</p>
+  </mat-card>
   

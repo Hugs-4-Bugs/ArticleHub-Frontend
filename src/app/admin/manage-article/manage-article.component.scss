@@ -1,11 +1,286 @@
-.float-right{
-    float: right !important;
-}
-
-mat-card{
-    padding: 20px;
-}
-
-table {
-    width: 100%;
+/* ===== BASE STYLES ===== */
+body {
+    background-color: #0f172a; /* Deep navy blue - reduces eye strain */
+    color: #ebf0e2; /* Soft off-white for readability */
+    font-family: 'Inter', 'Segoe UI', sans-serif;
   }
+  
+  /* ===== CARD STYLES ===== */
+  mat-card {
+    padding: 20px;
+    border-radius: 16px !important;
+    background: #1e293b; /* Premium dark card */
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.2),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 16px;
+    border: 1px solid #334155; /* Subtle border */
+  }
+  
+  mat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 10px 15px -3px rgba(0, 0, 0, 0.3),
+      0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* ===== STICKY HEADER & FILTER ===== */
+  mat-card:first-child {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: linear-gradient(135deg, #668e57 0%, #0f172a 100%);  /* manage article div color */
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #691433;
+    margin-bottom: 0;
+    padding: 16px 24px;
+  }
+  
+  mat-card:nth-child(3) { /* Filter card */
+    position: sticky;
+    top: 80px;
+    z-index: 90;
+    background: rgba(105, 136, 166, 0.9);   /* filter div color */
+    backdrop-filter: blur(6px);
+    margin-top: 0;
+    padding: 12px 24px;
+  }
+  
+  /* ===== FLOATING BUTTON ===== */
+  .float-right {
+    float: right !important;
+  }
+  
+  button[mat-flat-button] {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 0 24px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #040795 0%, #8b5cf6 100%); /* Premium purple gradient */
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  button[mat-flat-button]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+ /* ===== TABLE CONTAINER FIX (WHITE BG ISSUE) ===== */
+.responsive_table {
+    border-radius: 16px;
+    overflow: hidden;
+    background: #1e293b !important; /* Force dark background */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin-top: 16px;
+    max-height: calc(100vh - 280px); /* Adjusted height to prevent overlap */
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #4b5563 #1e293b;
+    position: relative;
+    z-index: 1; /* Ensure it stays below sticky headers */
+  }
+  
+  .responsive_table::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .responsive_table::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 4px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  
+  th.mat-header-cell {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    color: #94a3b8 !important;
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    padding: 16px !important;
+    position: sticky !important;
+    top: 152px !important; /* Adjusted to account for sticky headers above */
+    z-index: 20 !important; /* Higher than other elements */
+    border-bottom: 1px solid #334155 !important;
+    backdrop-filter: blur(4px) !important;
+  }
+  
+  td.mat-cell {
+    padding: 16px;
+    color: #e2e8f0;
+    font-size: 0.875rem;
+    border-bottom: 1px solid #334155;
+    transition: background 0.2s ease;
+  }
+  
+  tr.mat-row:hover td {
+    background: rgba(30, 41, 59, 0.7);
+  }
+  
+  /* ===== STATUS CHIPS (FLOATING GLOW EFFECT) ===== */
+  mat-chip-option {
+    font-size: 0.75rem;
+    font-weight: 600;
+    min-height: 26px;
+    padding: 0 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .mat-chip-option-disabled { /* Published */
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: white !important;
+  }
+  
+  .mat-chip-option-disabled-false { /* Draft */
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+    color: white !important;
+  }
+  
+  mat-chip-option:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+ /* ===== ACTION BUTTONS (FLOATING + GLOW) ===== */
+button[mat-icon-button] {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0 6px;
+    background: rgba(30, 41, 59, 0.9); /* Dark semi-transparent bg */
+    border-radius: 10px;
+    border: 1px solid #334155; /* Subtle border */
+    box-shadow: 
+      0 2px 6px rgba(0, 0, 0, 0.2),
+      inset 0 1px 1px rgba(255, 255, 255, 0.1); /* Inner glow */
+    color: #94a3b8; /* Soft gray icon color */
+  }
+  
+  /* View Button (Blue Glow) */
+  button[mat-icon-button]:first-child:hover {
+    background: rgba(56, 182, 255, 0.2);
+    box-shadow: 
+      0 4px 12px rgba(56, 182, 255, 0.3),
+      inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    color: #38b6ff; /* Bright blue icon */
+    border-color: #38b6ff;
+  }
+  
+  /* Edit Button (Purple Glow) */
+  button[mat-icon-button]:nth-child(2):hover {
+    background: rgba(139, 92, 246, 0.2);
+    box-shadow: 
+      0 4px 12px rgba(139, 92, 246, 0.3),
+      inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    color: #8b5cf6; /* Soft purple icon */
+    border-color: #8b5cf6;
+  }
+  
+  /* Delete Button (Red Glow) */
+  button[mat-icon-button]:last-child:hover {
+    background: rgba(239, 68, 68, 0.2);
+    box-shadow: 
+      0 4px 12px rgba(239, 68, 68, 0.3),
+      inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    color: #ef4444; /* Vibrant red icon */
+    border-color: #ef4444;
+  }
+  
+  /* Hover Animation */
+  button[mat-icon-button]:hover {
+    transform: translateY(-3px) scale(1.1);
+    backdrop-filter: blur(4px);
+  }
+
+  button[mat-icon-button]:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 6px 12px rgba(99, 102, 241, 0.3);
+  }
+  
+  /* ===== HR DIVIDER ===== */
+  hr {
+    margin: 0;
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #334155, transparent);
+    opacity: 0.5;
+  }
+  
+  /* ===== RESPONSIVE ADJUSTMENTS ===== */
+  @media (max-width: 768px) {
+    .responsive_table {
+      max-height: calc(100vh - 220px);
+    }
+    
+    th.mat-header-cell, td.mat-cell {
+      padding: 12px;
+    }
+  }
+
+  
+  /* ===== COMPACT ACTION BUTTONS ===== */
+td.mat-cell[matColumnDef="edit"] {  /* Targets only the Action column cells */
+    padding: 8px 12px !important;     /* Reduces cell padding (adjust values as needed) */
+  }
+  
+  td.mat-cell[matColumnDef="edit"] button[mat-icon-button] {
+    width: 32px !important;            /* Smaller button width */
+    height: 32px !important;           /* Smaller button height */
+    margin: 0 4px !important;          /* Reduced spacing between buttons */
+  }
+  
+  td.mat-cell[matColumnDef="edit"] button[mat-icon-button] mat-icon {
+    font-size: 18px !important;        /* Smaller icon size */
+    width: 18px !important;
+    height: 18px !important;
+    line-height: 18px !important;
+  }
+
+  .sticky-card {
+    max-height: 500px;       /* Set max height for the card */
+    overflow: hidden;        /* Hide overflow outside card */
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    background: #fafafa;
+  }
+  
+  /* Make the table wrapper scrollable */
+  .sticky-card .responsive_table {
+    overflow-y: auto;        /* Scroll vertically */
+    max-height: 370px;       /* Slightly less than card height */
+  }
+  
+  /* Sticky header row styling */
+  .sticky-card table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .sticky-card th.mat-header-cell {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(90deg, #4b6cb7, #182848); /* Premium dark blue gradient */
+    color: white;
+    z-index: 10;
+    font-weight: 700;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  }
+  
+  /* Optional: add subtle border between rows */
+  .sticky-card tr.mat-row:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+  
+  .sticky-card tr.mat-row:hover {
+    background-color: #e3eafc;
+    transition: background-color 0.3s ease;
+  }
+  
