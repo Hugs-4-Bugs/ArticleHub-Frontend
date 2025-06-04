@@ -171,8 +171,8 @@ export const environment = {
 
 ## 👨‍💻 Developed By
 
-### 👨‍💻 Developer - **[Prabhat Kumar](https://prabhatkr.vercel.app/)**  
-🚀 Founder & CEO of - **[QuantumFusion Solutions](https://quantumfusion-solutions.vercel.app/)**
+#### 👨‍💻 Developer - **[Prabhat Kumar](https://prabhatkr.vercel.app/)**  
+#### 🚀 Founder & CEO of - **[QuantumFusion Solutions](https://quantumfusion-solutions.vercel.app/)**
 
 
 --- 
