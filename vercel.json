@@ -1,15 +1,14 @@
 {
-    "builds": [
-      {
-        "src": "dist/ArticleHub-Frontend/index.html",
-        "use": "@vercel/static"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/index.html"
-      }
-    ]
-  }
-  
+  "builds": [
+    {
+      "src": "dist/ArticleHub-Frontend/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
