@@ -1,7 +1,7 @@
 {
   "builds": [
     {
-      "src": "dist/ArticleHub-Frontend/**",
+      "src": "dist/temp-articlehub/**",
       "use": "@vercel/static"
     }
   ],
