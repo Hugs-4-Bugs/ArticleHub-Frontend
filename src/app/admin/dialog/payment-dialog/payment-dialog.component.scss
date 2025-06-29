@@ -1,0 +1,68 @@
+.dialog-toolbar-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 8px; /* ⛳ Reduce this */
+  box-sizing: border-box;
+}
+
+.dialog-toolbar-row span {
+  flex-grow: 1;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+mat-dialog-container {
+  overflow: visible !important;
+}
+
+/* Close button styling */
+.close-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  mat-icon {
+    color: white;
+    font-size: 20px;
+    line-height: 1; // 👈 Add this
+    height: 20px; // 👈 Match with font-size
+    width: 20px; // 👈 Optional: ensures square icon area
+    display: flex; // 👈 Center within mat-icon
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Optional: Responsive tweaks */
+@media (max-width: 600px) {
+  .dialog-toolbar-row {
+    padding: 0 8px;
+    min-height: 56px;
+  }
+
+  .close-button {
+    width: 32px;
+    height: 32px;
+
+    mat-icon {
+      font-size: 18px;
+    }
+  }
+}

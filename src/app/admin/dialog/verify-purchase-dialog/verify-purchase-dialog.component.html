@@ -1,0 +1,26 @@
+<!-- <mat-toolbar [color]="themeService.getTheme()">
+    <mat-toolbar-row fxLayout="row" class="dialog-toolbar-row">
+      <span>Verify Previous Purchase</span>
+      <button mat-icon-button mat-dialog-close class="close-button">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <mat-dialog-content class="mat-typography" style="padding: 20px;">
+    <p class="text-lg text-gray-700 mb-6">Please enter the email or phone number used for the purchase:</p>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Email or Phone Number</mat-label>
+      <input matInput [(ngModel)]="verifyContactInput" placeholder="your@email.com or 1234567890">
+    </mat-form-field>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions align="end" class="dialog-actions-custom">
+    <button mat-button mat-dialog-close class="cancel-button">Cancel</button>
+    <button mat-raised-button [color]="themeService.getTheme()" (click)="verifyPreviousPurchase()" [disabled]="isVerifyingPurchase || !verifyContactInput">
+      <span *ngIf="!isVerifyingPurchase">Verify Now</span>
+      <span *ngIf="isVerifyingPurchase">Verifying...</span>
+      <mat-icon *ngIf="isVerifyingPurchase">loop</mat-icon>
+    </button>
+  </mat-dialog-actions>
+   -->

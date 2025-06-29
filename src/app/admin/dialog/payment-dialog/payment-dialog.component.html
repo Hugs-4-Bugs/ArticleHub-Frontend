@@ -1,0 +1,101 @@
+<!-- <mat-toolbar [color]="themeService.getTheme()">
+    <mat-toolbar-row class="dialog-toolbar-row"> 
+      <span>Choose Your Access</span>
+      <button mat-icon-button mat-dialog-close class="close-button">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <mat-dialog-content class="mat-typography" style="padding: 20px;">
+    <p class="text-lg text-gray-700 mb-6">Please select your preferred access option:</p>
+    <div class="flex flex-col gap-4">
+      <mat-card class="tier-card">
+        <mat-card-header class="flex items-center">
+          <mat-card-title>
+            ₹10 - Limited View
+          </mat-card-title>
+          <button mat-icon-button matTooltip="Get read-only access to the article content. Download and screenshot/record features will remain disabled.">
+            <mat-icon>info</mat-icon>
+          </button>
+        </mat-card-header>
+        <mat-card-actions align="end">
+          <button mat-raised-button [color]="themeService.getTheme()" (click)="selectTier('limited')">
+            Select ₹10
+          </button>
+        </mat-card-actions>
+      </mat-card>
+  
+      <mat-card class="tier-card">
+        <mat-card-header class="flex items-center">
+          <mat-card-title>
+            ₹50 - Full Access + Download
+          </mat-card-title>
+          <button mat-icon-button matTooltip="Unlock full read access, enable download options (PDF/DOCX), and allow screenshot/recording.">
+            <mat-icon>info</mat-icon>
+          </button>
+        </mat-card-header>
+        <mat-card-actions align="end">
+          <button mat-raised-button [color]="themeService.getTheme()" (click)="selectTier('full')">
+            Select ₹50
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions align="end" class="dialog-actions-custom">
+    <button mat-button mat-dialog-close class="cancel-button">Cancel</button>
+  </mat-dialog-actions>
+   -->
+
+   <mat-toolbar [color]="themeService.getTheme()">
+    <mat-toolbar-row class="dialog-toolbar-row">
+      <span>Choose Your Access</span>
+      <button mat-icon-button mat-dialog-close class="close-button">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <mat-dialog-content class="mat-typography" style="padding: 20px;">
+    <p class="text-lg text-gray-700 mb-6">Please select your preferred access option:</p>
+    <div class="flex flex-col gap-4">
+      <mat-card class="tier-card">
+        <mat-card-header class="flex items-center">
+          <mat-card-title>
+            ₹{{ pricing.limited }} - Limited View
+          </mat-card-title>
+          <button mat-icon-button matTooltip="Get read-only access to the article content. Download and screenshot/record features will remain disabled.">
+            <mat-icon>info</mat-icon>
+          </button>
+        </mat-card-header>
+        <mat-card-actions align="end">
+          <button mat-raised-button [color]="themeService.getTheme()" (click)="selectTier('limited')">
+            Select ₹{{ pricing.limited }}
+          </button>
+        </mat-card-actions>
+      </mat-card>
+  
+      <mat-card class="tier-card">
+        <mat-card-header class="flex items-center">
+          <mat-card-title>
+            ₹{{ pricing.full }} - Full Access + Download
+          </mat-card-title>
+          <button mat-icon-button matTooltip="Unlock full read access, enable download options (PDF/DOCX), and allow screenshot/recording.">
+            <mat-icon>info</mat-icon>
+          </button>
+        </mat-card-header>
+        <mat-card-actions align="end">
+          <button mat-raised-button [color]="themeService.getTheme()" (click)="selectTier('full')">
+            Select ₹{{ pricing.full }}
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions align="end" class="dialog-actions-custom">
+    <button mat-button mat-dialog-close class="cancel-button">Cancel</button>
+  </mat-dialog-actions>
+  

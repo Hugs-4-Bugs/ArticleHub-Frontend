@@ -1,22 +1,71 @@
-<mat-toolbar [color]="themeService.getTheme()">
-  <mat-toolbar-row fxLayout="row">
+
+<!-- <mat-toolbar [color]="themeService.getTheme()">
+  <mat-toolbar-row fxLayout="row" fxLayoutAlign="center center">
     <span class="title-center">View Article</span>
   </mat-toolbar-row>
 </mat-toolbar>
 
 <mat-dialog-content class="mat-typography">
-  <div style="color: black;">
-    Title: {{ article?.title }}
+  <div style="color: black; margin-bottom: 10px;">
+    <strong>Title:</strong> {{ article?.title }}
+
+    <mat-chip-listbox *ngIf="article?.paid" style="margin-left: 8px;">
+      <mat-chip-option selected color="warn">
+        <mat-icon matChipAvatar>lock</mat-icon> Paid
+      </mat-chip-option>
+    </mat-chip-listbox>
+
     <br />
-    Category: {{ article?.categoryName }}
+    <strong>Category:</strong> {{ article?.categoryName }}
     <br />
-    Status: {{ article?.status }}
+    <strong>Status:</strong> {{ article?.status }}
   </div>
-  <hr/>
-  <div [innerHTML]="article.content | sanitizeHtml"></div>
+
+  <hr />
+
+  <div [innerHTML]="article?.content | sanitizeHtml"></div>
 </mat-dialog-content>
 
+<mat-dialog-actions align="center" style="margin-top: 12px;">
+  <button mat-raised-button [color]="themeService.getTheme()" mat-dialog-close>
+    Close
+  </button>
+</mat-dialog-actions> -->
 
-<mat-dialog-actions align="center">
-    <button mat-raised-button [color]="themeService.getTheme()" mat-dialog-close>Close</button>
+
+
+
+
+
+<mat-toolbar [color]="themeService.getTheme()">
+  <mat-toolbar-row fxLayout="row" fxLayoutAlign="center center">
+    <span class="title-center">View Article</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content class="mat-typography">
+  <div style="color: black; margin-bottom: 10px;">
+    <strong>Title:</strong> {{ article?.title }}
+
+    <mat-chip-listbox *ngIf="article?.paid" style="margin-left: 8px;">
+      <mat-chip-option selected color="warn">
+        <mat-icon matChipAvatar>lock</mat-icon> Paid
+      </mat-chip-option>
+    </mat-chip-listbox>
+
+    <br />
+    <strong>Category:</strong> {{ article?.categoryName }}
+    <br />
+    <strong>Status:</strong> {{ article?.status }}
+  </div>
+
+  <hr />
+
+  <div [innerHTML]="article?.content | sanitizeHtml"></div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center" style="margin-top: 12px;">
+  <button mat-raised-button [color]="themeService.getTheme()" mat-dialog-close>
+    Close
+  </button>
 </mat-dialog-actions>

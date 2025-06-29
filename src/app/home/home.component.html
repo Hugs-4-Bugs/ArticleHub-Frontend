@@ -1,4 +1,4 @@
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <mat-toolbar class="mat-elevation-z8" [color] = "themeService.getTheme()">
     <strong style="display: flex; align-items: center; gap: 6px;">
         <mat-icon>library_books</mat-icon>
@@ -66,7 +66,6 @@
     <div class="toolbar-content">
         <span>
       Created by
-      <!-- <a href="https://hugs-4-bugs.github.io/myResume/" target="_blank" rel="noopener" style="margin-left: 4px; color: white; text-decoration: none;"> -->
       <a href="https://prabhatkr.vercel.app/" target="_blank" rel="noopener" style="margin-left: 4px; color: white; text-decoration: none;">
        <strong> 
         Prabhat Kumar
@@ -78,3 +77,85 @@
     </div>
   </mat-toolbar>
   
+   -->
+
+
+
+
+
+
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- HEADER -->
+<mat-toolbar class="header mat-elevation-z8" [color]="themeService.getTheme()">
+  <strong style="display: flex; align-items: center; gap: 6px;">
+    <mat-icon>library_books</mat-icon>
+    Article Hub
+  </strong>
+  <span class="spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>palette</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-fab color="primary" class="button-margin" (click)="changeTheme('primary')">
+      <mat-icon *ngIf="themeService.getTheme() === 'primary'">done</mat-icon>
+    </button>
+    <button mat-fab color="accent" class="button-margin" (click)="changeTheme('accent')">
+      <mat-icon *ngIf="themeService.getTheme() === 'accent'">done</mat-icon>
+    </button>
+    <button mat-fab color="warn" class="button-margin" (click)="changeTheme('warn')">
+      <mat-icon *ngIf="themeService.getTheme() === 'warn'">done</mat-icon>
+    </button>
+  </mat-menu>
+
+  <button mat-icon-button [routerLink]="['/login']">
+    <mat-icon>login</mat-icon>
+  </button>
+</mat-toolbar> 
+
+
+<!-- MAIN CONTENT -->
+<div class="content-wrapper">
+  <mat-form-field appearance="fill" [color]="themeService.getTheme()" class="filter-field">
+    <mat-label>Filter</mat-label>
+    <input matInput [(ngModel)]="searchText" (input)="filteredItems()" placeholder="Search articles...">
+  </mat-form-field>
+
+  <div class="card-container">
+    <mat-card *ngFor="let card of filteredItems()" class="card hover-card" (click)="handleViewAction(card)">
+      <mat-card-header>
+        <mat-card-title>
+          <b>{{ card.title }}</b>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="card-detail">
+          <span class="label">📁 Category:</span>
+          <span class="value">{{ card.categoryName }}</span>
+        </div>
+        <div class="card-detail">
+          <span class="label">📅 Published:</span>
+          <span class="value">{{ card.publication_date | date:'dd-MM-yyyy' }}</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <h2 *ngIf="filteredItems()?.length === 0" class="no-results">🚫 Nothing to show</h2>
+</div>
+
+
+<!-- FOOTER -->
+<mat-toolbar [color]="themeService.getTheme()" class="footer">
+  <div class="toolbar-content">
+    <span>
+      Created by
+      <a href="https://prabhatkr.vercel.app/" target="_blank" rel="noopener">
+        <strong>Prabhat Kumar</strong>
+      </a>
+      &nbsp;|&nbsp;
+      <i class="far fa-copyright"></i> 2025 All rights reserved.
+    </span>
+  </div>
+</mat-toolbar>

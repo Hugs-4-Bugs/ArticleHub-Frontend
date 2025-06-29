@@ -23,6 +23,7 @@ export class ManageArticleComponent implements OnInit {
     'status',
     'publication_date',
     'edit',
+    'paid',
   ];
   dataSource: any;
   response: any;
@@ -89,6 +90,8 @@ export class ManageArticleComponent implements OnInit {
       data:values
     };
     dialogConfig.width = "850px";
+    // const dialogRef = this.dialog.open(ViewArticleComponent, dialogConfig);
+    dialogConfig.panelClass = 'full-dialog'; // ✅ Add this line
     const dialogRef = this.dialog.open(ViewArticleComponent, dialogConfig);
     this.router.events.subscribe(()=>{
       dialogRef.close();
@@ -96,23 +99,40 @@ export class ManageArticleComponent implements OnInit {
   }
 
 
-  handleEditAction(values: any) {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.data={
-      action:'Edit',
-      data:values
-    };
-    dialogConfig.width = "850px";
-    const dialogRef = this.dialog.open(ArticleComponent, dialogConfig);
-    this.router.events.subscribe(()=>{
-      dialogRef.close();
-    });
-    const res = dialogRef.componentInstance.onEditArticle.subscribe((response:any)=>{
-      this.tableData();
-    })
-  }
+  // handleEditAction(values: any) {
+  //   const dialogConfig = new MatDialogConfig();
+  //   dialogConfig.data={
+  //     action:'Edit',
+  //     data:values
+  //   };
+  //   dialogConfig.width = "850px";
+  //   const dialogRef = this.dialog.open(ArticleComponent, dialogConfig);
+  //   this.router.events.subscribe(()=>{
+  //     dialogRef.close();
+  //   });
+  //   const res = dialogRef.componentInstance.onEditArticle.subscribe((response:any)=>{
+  //     this.tableData();
+  //   })
+  // }
 
 
+
+// Also, fix issue where editing resets 'paid' status
+handleEditAction(values: any) {
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.data = {
+    action: 'Edit',
+    data: { ...values } // Clone to avoid mutation issues
+  };
+  dialogConfig.width = "850px";
+  const dialogRef = this.dialog.open(ArticleComponent, dialogConfig);
+  this.router.events.subscribe(() => {
+    dialogRef.close();
+  });
+  const res = dialogRef.componentInstance.onEditArticle.subscribe((response: any) => {
+    this.tableData();
+  });
+}
 
   onDelete(value: any) {
     const dialogConfig = new MatDialogConfig();
@@ -128,6 +148,19 @@ export class ManageArticleComponent implements OnInit {
       }
     );
   }
+
+
+  // Inside your component class
+onPaidToggleChange(element: any, isChecked: boolean) {
+  console.log(`Article: ${element.title}, Paid status changed to: ${isChecked}`);
+  // Here you would typically update the element's 'paid' property
+  element.paid = isChecked; // If you want to update locally first
+
+  // Then, call a service to update the backend/database
+  // this.articleService.updateArticlePaidStatus(element.id, isChecked).subscribe(response => {
+  //   // Handle success or error
+  // });
+}
 
   deleteProduct(id: any) {
     this.articleService.deleteArticle(id).subscribe(

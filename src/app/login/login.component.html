@@ -7,21 +7,24 @@
   
       <div style="text-align: center !important; margin-bottom: 5pc;">Article Hub</div>
   
-      <form [formGroup]="loginForm">
+      <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
         <div fxFlex fxLayout="column">
+          <!-- Email Field -->
           <mat-form-field appearance="outline" fxFlex [color]="themeService.getTheme()">
             <mat-label>Email</mat-label>
-            <input matInput formControlName="email" required>
+            <input matInput formControlName="email" required />
             <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
               <span *ngIf="loginForm.controls.email.errors.required">This field is required.</span>
               <span *ngIf="loginForm.controls.email.errors.pattern">This field is invalid.</span>
             </mat-error>
           </mat-form-field>
-  
+      
+          <!-- Password Field -->
           <mat-form-field appearance="outline" fxFlex [color]="themeService.getTheme()">
             <mat-label>Password</mat-label>
-            <input matInput [type]="passwordFieldType" formControlName="password" required>
+            <input matInput [type]="passwordFieldType" formControlName="password" required />
             <button
+              type="button"  
               mat-icon-button
               matSuffix
               (click)="togglePasswordVisibility()"
@@ -33,11 +36,18 @@
               <span *ngIf="loginForm.controls.password.errors.required">This field is required.</span>
             </mat-error>
           </mat-form-field>
-  
-          <!-- in case the email and password format doesn't meet as expected then login button will be disabled -->
-          <button mat-raised-button [disabled]="!(loginForm.valid && loginForm.dirty)" [color]="themeService.getTheme()" (click)="handleSubmit()">Login</button>
+      
+          <!-- Login Button -->
+          <button 
+            mat-raised-button 
+            color="{{ themeService.getTheme() }}" 
+            type="submit"
+            [disabled]="!(loginForm.valid && loginForm.dirty)">
+            Login
+          </button>
         </div>
       </form>
+      
   
       <!-- back button code -->
       <div class="home-link">

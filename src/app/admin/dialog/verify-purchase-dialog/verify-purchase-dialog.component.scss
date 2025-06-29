@@ -1,0 +1,27 @@
+.verify-dialog-container {
+  padding: 24px;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #666;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+}

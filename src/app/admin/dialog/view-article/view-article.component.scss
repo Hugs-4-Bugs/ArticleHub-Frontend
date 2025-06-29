@@ -6,3 +6,48 @@
 mat-form-field{
     padding: 5px;
 }
+
+
+::ng-deep .mat-chip.mat-warn {
+    font-weight: bold;
+    font-size: 12px;
+    background-color: #ff9800;
+    color: white;
+  }
+  
+
+
+
+
+  .locked-content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  text-align: center;
+  padding: 20px;
+}
+
+.lock-icon {
+  font-size: 48px;
+  color: #e53935;
+  margin-bottom: 10px;
+}
+
+.lock-message h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.lock-message p {
+  margin: 8px 0;
+}
+
+.paid-chip .lock-icon {
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  

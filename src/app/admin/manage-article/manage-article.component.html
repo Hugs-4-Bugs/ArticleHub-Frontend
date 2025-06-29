@@ -2,7 +2,7 @@
     <div>
         <b><span>Manage Article</span></b>
         <button mat-flat-button [color]="themeService.getTheme()" class ="float-right" (click)="handleAddAction()">
-            Add Article 
+            Add Article
         </button>
     </div>
 </mat-card>
@@ -50,7 +50,6 @@
               </mat-chip-listbox>
             </td>
           </ng-container>
-          
 
         <ng-container matColumnDef="publication_date">
             <th mat-header-cell *matHeaderCellDef>
@@ -75,6 +74,17 @@
                 <button mat-icon-button [color]="themeService.getTheme()" matTooltip="Delete" (click)="onDelete(element)">
                     <mat-icon>delete</mat-icon>
                 </button>
+            </td>
+        </ng-container>
+
+        <!-- New 'Paid' Column -->
+        <ng-container matColumnDef="paid">
+            <th mat-header-cell *matHeaderCellDef>
+                <b><i>Paid</i></b>
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-slide-toggle [color]="themeService.getTheme()" [checked]="element.paid" (change)="onPaidToggleChange(element, $event.checked)">
+                </mat-slide-toggle>
             </td>
         </ng-container>
 

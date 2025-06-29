@@ -18,6 +18,8 @@ import { SharedModule } from '../shared/shared.module';
 import { ManageArticleComponent } from './manage-article/manage-article.component';
 import { ArticleComponent } from './dialog/article/article.component';
 import { ViewArticleComponent } from './dialog/view-article/view-article.component';
+import { PaymentDialogComponent } from './dialog/payment-dialog/payment-dialog.component';
+import { VerifyPurchaseDialogComponent } from './dialog/verify-purchase-dialog/verify-purchase-dialog.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { ViewArticleComponent } from './dialog/view-article/view-article.compone
     CategoryComponent,
     ManageArticleComponent,
     ArticleComponent,
-    ViewArticleComponent
+    ViewArticleComponent,
+    PaymentDialogComponent,
+    VerifyPurchaseDialogComponent
   ],
   imports: [
     CommonModule,

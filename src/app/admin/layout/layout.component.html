@@ -1,4 +1,4 @@
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <mat-toolbar [color] = "themeService.getTheme()">
 
     <button mat-icon-button **ngIf="sidenav.mode === 'side'" (click)="sidenav.toggle()">
@@ -80,4 +80,87 @@
            <router-outlet></router-outlet>
         </div>
     </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<mat-toolbar [color]="themeService.getTheme()">
+  <button mat-icon-button *ngIf="isMobile" (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  Article Hub
+
+  <span class="spacer"></span>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>palette</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-fab color="primary" class="button-margin" (click)="changeTheme('primary')">
+      <mat-icon *ngIf="themeService.getTheme() === 'primary'">done</mat-icon>
+    </button>
+    <button mat-fab color="accent" class="button-margin" (click)="changeTheme('accent')">
+      <mat-icon *ngIf="themeService.getTheme() === 'accent'">done</mat-icon>
+    </button>
+    <button mat-fab color="warn" class="button-margin" (click)="changeTheme('warn')">
+      <mat-icon *ngIf="themeService.getTheme() === 'warn'">done</mat-icon>
+    </button>
+  </mat-menu>
+
+  <button mat-icon-button (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar> 
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav
+                [mode]="isMobile ? 'over' : 'side'"
+                [opened]="!isMobile">
+    <img class="avatar mat-elevation-z8" src="../../../assets/profile.png">
+
+    <mat-divider class="custom-divider"></mat-divider>
+
+    <button mat-button class="menu-button" [color]="themeService.getTheme()" routerLinkActive="active" routerLink="/articleHub/dashboard">
+      <mat-icon>home</mat-icon>
+      <b><span>Dashboard</span></b>
+    </button>
+
+    <button mat-button class="menu-button" [color]="themeService.getTheme()" routerLinkActive="active" routerLink="/articleHub/users">
+      <mat-icon>group</mat-icon>
+      <b><span>User</span></b>
+    </button>  
+
+    <button mat-button class="menu-button" [color]="themeService.getTheme()" routerLinkActive="active" routerLink="/articleHub/category">
+      <mat-icon>apartment</mat-icon>
+      <b><span>Category</span></b>
+    </button>
+
+    <button mat-button class="menu-button" [color]="themeService.getTheme()" routerLinkActive="active" routerLink="/articleHub/article">
+      <mat-icon>storage</mat-icon>
+      <b><span>Article</span></b>
+    </button>
+
+    <mat-divider class="custom-divider"></mat-divider>
+
+    <button mat-button class="menu-button" [color]="themeService.getTheme()" routerLinkActive="active" routerLink="/articleHub/help">
+      <mat-icon>help</mat-icon>
+      <b><span>Help</span></b>
+    </button>
+  </mat-sidenav>
+
+  <mat-sidenav-content style="background: radial-gradient(red, #332042)">
+    <div class="content mat-elevation-z8" style="background: white">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>

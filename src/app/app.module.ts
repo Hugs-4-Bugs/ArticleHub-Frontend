@@ -15,6 +15,8 @@ import { TokenInterceptor } from './services/token.interceptor';
 import { QuillModule } from 'ngx-quill';
 import { SharedModule } from './shared/shared.module';
 import { ArticleDetailsComponent } from './article-details/article-details.component';
+import { DownloadOptionsDialogComponent } from './download-options-dialog/download-options-dialog.component';
+import { DownloadFormatDialogComponent } from './download-format-dialog/download-format-dialog.component';
 
 
 
@@ -37,7 +39,11 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     AppComponent,
     HomeComponent,
     LoginComponent,
-    ArticleDetailsComponent
+    ArticleDetailsComponent,
+    DownloadOptionsDialogComponent,
+    DownloadFormatDialogComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     MatIconModule,
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
     QuillModule.forRoot(),
-    SharedModule
+    SharedModule,
+    
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
