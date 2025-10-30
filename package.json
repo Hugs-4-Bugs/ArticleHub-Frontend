@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "postinstall": "patch-package",
-      "vercel-build": "ng build --configuration production"
+    "vercel-build": "ng build --configuration production"
   },
   "private": true,
   "dependencies": {
@@ -24,9 +24,9 @@
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
     "@types/quill": "^2.0.14",
-    "ngx-quill": "^17.1.1",
+    "ngx-quill": "^18.0.0",
     "ngx-ui-loader": "^13.0.0",
-    "quill": "^1.3.7",
+    "quill": "^2.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "url": "^0.11.4",
@@ -43,6 +43,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "~5.0.2"
+    "typescript": "~5.0.2",
+    "webpack-dev-server": "^5.2.2"
   }
 }
