@@ -1,16 +1,15 @@
 {
   "name": "temp-articlehub",
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "postinstall": "patch-package",
     "vercel-build": "ng build --configuration production"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^16.2.12",
     "@angular/cdk": "^16.2.14",
