@@ -46,7 +46,12 @@ import { VerifyPurchaseDialogComponent } from './dialog/verify-purchase-dialog/v
     ReactiveFormsModule,
     FlexLayoutModule,
     QuillModule.forRoot(),
-    SharedModule
+//     QuillModule.forRoot({
+//   modules: {
+//     toolbar: true
+//   }
+// }),
+   SharedModule
   ]
 })
 export class AdminModule { }

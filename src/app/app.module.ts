@@ -60,6 +60,21 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     SharedModule,
     
   ],
+// imports: [
+//   BrowserModule,
+//   BrowserAnimationsModule,
+//   AppRoutingModule,
+//   FlexLayoutModule,
+//   HttpClientModule,
+//   NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
+//   // QuillModule.forRoot()
+//   QuillModule.forRoot(),QuillModule.forRoot({
+//   modules: {
+//     toolbar: true
+//   }
+// }),
+//   SharedModule
+// ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ],
