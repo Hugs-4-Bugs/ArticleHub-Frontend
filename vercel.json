@@ -4,7 +4,10 @@
   "outputDirectory": "dist/temp-articlehub",
   "routes": [
     {
-      "src": "/(.*)",
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
       "dest": "/index.html"
     }
   ]
